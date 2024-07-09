@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
 
@@ -7,6 +7,21 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
     const [todo, setTodo] = useState([]);
     const [isEdit,setIsEdit]=useState(false);
     const [currentEditIndex,setCurrentEditIndex]=useState(null);
+
+    useEffect(()=>{
+        const storedTodos=JSON.parse(localStorage.getItem("todos"));
+        console.log(storedTodos)
+        if(storedTodos){
+            setTodo(storedTodos);
+        }
+    },[]);
+    
+   useEffect(()=>{
+        localStorage.setItem("todos",JSON.stringify(todo));
+          console.log(todo)
+   
+           
+       },[todo]);
     
 
 
@@ -24,11 +39,15 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
             } else {
                 setTodo([...todo,{text: input.trim(), completed:false}]);
             setInput("");
+            
 
             }
+
+            
         }
 
     }
+    
     const handleDelete=(index)=>{
         setTodo(todo.filter((element,i) =>{
             return(
@@ -55,9 +74,6 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
 
 
-
-
-
   return (
     <div className='flex flex-wrap justify-center items-center mx-auto'>
         
@@ -80,7 +96,9 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
                 <ul className='list-decimal m-8'>
                   {todo.map((element,index)=>(
                     <li key={index} className='m-4'>
-                       <sapn className={element.completed ? "line-through" : ""}>{element.text} </sapn> 
+                       <span className={element.completed ? "line-through" : ""}>{element.text} </span> 
+
+                       <div className='mx-auto inline-block space-x-4'>
                     <div className='inline-block mx-auto ml-2'><FaMinusCircle className='cursor-pointer'
                     onClick={()=>(handleDelete(index))}
 
@@ -99,6 +117,7 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
                             <FaCheck className='cursor-pointer line-through' 
                             onClick={()=>{handleComplete(index)}}/>
 
+                            </div>
                             </div>
 
                     </li> 
