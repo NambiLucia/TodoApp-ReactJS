@@ -75,14 +75,14 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
 
   return (
-    <div className='flex flex-wrap justify-center items-center mx-auto'>
+    <div className='flex flex-wrap justify-center items-center mx-auto bg-gradient-to-r from-purple-500 to-pink-500 h-screen'>
         
         <div>
-            <h1 className='text-center'>You can do it!!!</h1>
-            <label>Add task:</label>
-                {""}
+            <h1 className='text-center font-Poppins text-3xl'>JUST DO IT!!!</h1>
+           
             <input className='border-solid border-2 border-black  w-72 h-10 rounded-lg p-4'
             type="text" 
+            placeholder='Add task'
             value={input}
             onChange={(e) => setInput(e.target.value)}/>
             <FaPlusCircle 
@@ -95,11 +95,11 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
             <div className='flex flex-wrap justify-center items-center'>
                 <ul className='list-decimal m-8'>
                   {todo.map((element,index)=>(
-                    <li key={index} className='m-4'>
+                    <li key={index} className='m-4 font-Poppins text-2xl'>
                        <span className={element.completed ? "line-through" : ""}>{element.text} </span> 
 
-                       <div className='mx-auto inline-block space-x-4'>
-                    <div className='inline-block mx-auto ml-2'><FaMinusCircle className='cursor-pointer'
+                       <div className='inline-flex justify-items-end items-center mx-auto me-auto ml-20 p-4 w-32 h-14'>
+                    <div className='inline-block mx-auto ml-2 '><FaMinusCircle className='cursor-pointer'
                     onClick={()=>(handleDelete(index))}
 
                     />
