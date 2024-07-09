@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React,{useEffect, useState} from 'react'
 import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
@@ -71,6 +72,7 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
         setTodo(updatedTodos);
 
     }
+    const currentDate = format(new Date(), "MMMM do, yyyy");
 
 
 
@@ -78,7 +80,7 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
     <div className='flex flex-wrap justify-center items-center mx-auto bg-gradient-to-r from-purple-500 to-pink-500 h-screen'>
         
         <div>
-            <h1 className='text-center font-Poppins text-3xl'>JUST DO IT!!!</h1>
+            <h1 className='text-center font-Poppins text-3xl'>{currentDate}</h1>
            
             <input className='border-solid border-2 border-black  w-72 h-10 rounded-lg p-4'
             type="text" 
