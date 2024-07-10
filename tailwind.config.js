@@ -21,6 +21,11 @@ export default {
    
    
   },
-  plugins: [],
+  plugins: [
+
+    require('tailwindcss-animated')
+
+
+  ],
 }
 

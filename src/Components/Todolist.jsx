@@ -77,59 +77,48 @@ import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
 
   return (
-    <div className='flex flex-wrap justify-center items-center mx-auto bg-gradient-to-r from-purple-500 to-pink-500 h-screen'>
+    <div className='flex flex-wrap justify-center items-center mx-auto bg-gradient-to-r from-purple-500 to-pink-500 '>
         
-        <div>
-            <h1 className='text-center font-Poppins text-3xl'>{currentDate}</h1>
+        <div className='h-screen'>
+            <h1 className='font-Poppins text-3xl mt-10 animate-flip-down animate-once animate-ease-linear animate-fill-both'>{`Today is ${currentDate}`}<br />Let's get Started</h1>
            
-            <input className='border-solid border-2 border-black  w-72 h-10 rounded-lg p-4'
-            type="text" 
-            placeholder='Add task'
-            value={input}
-            onChange={(e) => setInput(e.target.value)}/>
-            <FaPlusCircle 
-            className='inline-block mx-auto animate-bounce m-4 ml-2 font-bold text-4xl cursor-pointer'
-            type='submit'
-            onClick={handleAdd}/>
+            <input 
+  className='border-solid border-2 border-black w-full sm:w-64 md:w-72 lg:w-80 h-10 rounded-lg p-2 md:p-4 my-4' 
+  type="text" 
+  placeholder='Add task' 
+  value={input} 
+  onChange={(e) => setInput(e.target.value)}
+/>
+<FaPlusCircle 
+  className='inline-block mx-auto animate-bounce m-4 font-bold text-2xl sm:text-3xl md:text-4xl md:m-10 lg:text-5xl cursor-pointer'
+  type='submit'
+  onClick={handleAdd}
+/>
 
 
-            
-            <div className='flex flex-wrap justify-center items-center'>
-                <ul className='list-decimal m-8'>
-                  {todo.map((element,index)=>(
-                    <li key={index} className='m-4 font-Poppins text-2xl'>
-                       <span className={element.completed ? "line-through" : ""}>{element.text} </span> 
-
-                       <div className='inline-flex justify-items-end items-center mx-auto me-auto ml-20 p-4 w-32 h-14'>
-                    <div className='inline-block mx-auto ml-2 '><FaMinusCircle className='cursor-pointer'
-                    onClick={()=>(handleDelete(index))}
-
-                    />
-                    
-                    
-                    </div>
-                            <div className='inline-block mx-auto ml-2'>
-                                <FaEdit className='cursor-pointer' onClick={()=>{handleEdit(index)}}/>
-
-
-                            </div>
-
-                            <div className='inline-block mx-auto ml-2'>
-
-                            <FaCheck className='cursor-pointer line-through' 
-                            onClick={()=>{handleComplete(index)}}/>
-
-                            </div>
-                            </div>
-
-                    </li> 
-
-                  ))}
-
-
-                </ul>
-            </div>
-
+<div className='flex flex-wrap justify-center items-center p-4 sm:p-8'>
+  <ul className='list-decimal m-4 sm:m-8'>
+    {todo.map((element, index) => (
+      <li key={index} className='m-2 sm:m-4 font-Poppins text-lg sm:text-xl md:text-2xl'>
+        <span className={element.completed ? 'line-through' : ''}>{element.text}</span>
+        <div className='flex justify-end items-center mt-2'>
+          <FaMinusCircle
+            className='cursor-pointer text-lg sm:text-xl md:text-2xl mx-1'
+            onClick={() => handleDelete(index)}
+          />
+          <FaEdit
+            className='cursor-pointer text-lg sm:text-xl md:text-2xl mx-1'
+            onClick={() => handleEdit(index)}
+          />
+          <FaCheck
+            className='cursor-pointer text-lg sm:text-xl md:text-2xl mx-1'
+            onClick={() => handleComplete(index)}
+          />
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
 
 
 
