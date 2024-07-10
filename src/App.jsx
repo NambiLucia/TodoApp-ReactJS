@@ -16,6 +16,7 @@ export default function App() {
             <Route path="/todolist" element={<Todolist />} />
 
             <Route path="/" element={<Home />} />
+            <Route path="/hero" element={<Hero />} />
 
           </Routes>
 
