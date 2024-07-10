@@ -3,19 +3,18 @@ import React,{useEffect, useState} from 'react'
 import { FaPlusCircle,FaMinusCircle,FaEdit,FaCheck } from "react-icons/fa";
 
 
+function storage() {
+  const storedTodos = JSON.parse(localStorage.getItem("todos"));
+  return storedTodos ? storedTodos : [];
+}
+
+
  function Todolist() {
     const [input, setInput] = useState("");
-    const [todo, setTodo] = useState([]);
+    const [todo, setTodo] = useState(storage());
     const [isEdit,setIsEdit]=useState(false);
     const [currentEditIndex,setCurrentEditIndex]=useState(null);
 
-    useEffect(()=>{
-        const storedTodos=JSON.parse(localStorage.getItem("todos"));
-        console.log(storedTodos)
-        if(storedTodos){
-            setTodo(storedTodos);
-        }
-    },[]);
     
    useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todo));
