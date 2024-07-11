@@ -30,7 +30,7 @@
 ---
 - Add a task: Type the task description in the input field and click the "Add Task" icon.
 - Delete a task: Click the delete icon next to the task you want to delete.
-- Edit a task: Click the edit icon next to the task you want to edit. The task will appear in the inout for you to make any changes then click the add icon to add and save changes made.
+- Edit a task: Click the edit icon next to the task you want to edit. The task will appear in the input for you to make any changes then click the add icon to add and save changes made.
 - Mark a task as completed: Click the checkmark next to the task to mark it as completed.
 
 ## Contributing
