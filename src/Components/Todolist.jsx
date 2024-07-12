@@ -19,8 +19,6 @@ function storage() {
    useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todo));
           console.log(todo)
-   
-           
        },[todo]);
     
 
