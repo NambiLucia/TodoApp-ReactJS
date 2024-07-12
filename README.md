@@ -1,6 +1,6 @@
 # TODO LIST APP
 ---
-- This is a simple to-do application built using React + Vite, and Tailwind CSS. The app allows users to add, delete, edit and mark tasks as completed.
+- This is a simple to-do application built using React + Vite, and Tailwind CSS. The app allows users to add, delete, edit , mark tasks as completed and can persist data using local storage
 
 ![alt text](./public/picxxx.png)
 
